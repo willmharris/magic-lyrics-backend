@@ -6,8 +6,8 @@ class SongsController < ApplicationController
   before_action :set_song, only: [:show, :update, :destroy]
 
   def lyrics
-    song = "Hello"
-    artist = "Adele"
+    song = params[:song]
+    artist = params[:artist]
     token = "dsKmc8i46aTDrI04k4W4OkE3-fJBsnITVMl3ZZOpaxStMOpyE2x9dIpKVCjrdN1L"
     response = RestClient.get("https://api.genius.com/search?q=#{song}%20#{artist}", {
         "User-Agent": "CompuServe Classic/1.22",
