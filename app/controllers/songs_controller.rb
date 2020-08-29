@@ -6,7 +6,7 @@ class SongsController < ApplicationController
   before_action :set_song, only: [:show, :update, :destroy]
 
   def test 
-    render plain: "Test"
+    render json: {test: "test text"}
   end 
 
   def lyrics
