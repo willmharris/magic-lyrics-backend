@@ -5,6 +5,10 @@ require 'open-uri'
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :update, :destroy]
 
+  def test 
+    render plain: "Test"
+  end 
+
   def lyrics
     song = params[:song]
     artist = params[:artist]
