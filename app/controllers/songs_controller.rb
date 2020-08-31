@@ -10,23 +10,23 @@ class SongsController < ApplicationController
   end 
 
   def lyrics
-    song = params[:song]
-    artist = params[:artist]
-    token = "dsKmc8i46aTDrI04k4W4OkE3-fJBsnITVMl3ZZOpaxStMOpyE2x9dIpKVCjrdN1L"
-    response = RestClient.get("https://api.genius.com/search?q=#{song}%20#{artist}", {
-        "User-Agent": "CompuServe Classic/1.22",
-        "Accept": "application/json",
-        "Host": "api.genius.com",
-        "Authorization": "Bearer #{token}"
-    })
+    # song = params[:song]
+    # artist = params[:artist]
+    # token = "dsKmc8i46aTDrI04k4W4OkE3-fJBsnITVMl3ZZOpaxStMOpyE2x9dIpKVCjrdN1L"
+    # response = RestClient.get("https://api.genius.com/search?q=#{song}%20#{artist}", {
+    #     "User-Agent": "CompuServe Classic/1.22",
+    #     "Accept": "application/json",
+    #     "Host": "api.genius.com",
+    #     "Authorization": "Bearer #{token}"
+    # })
     
-    json_body = JSON.parse(response.body)
+    # json_body = JSON.parse(response.body)
 
-    song_url = json_body["response"]["hits"][0]["result"]["url"]
+    # song_url = json_body["response"]["hits"][0]["result"]["url"]
 
-    doc = Nokogiri::HTML(open(song_url))
+    # doc = Nokogiri::HTML(open(song_url))
     
-    lyrics = {lyrics: doc.css(".lyrics").children[3].text, website: song_url}
+    # lyrics = {lyrics: doc.css(".lyrics").children[3].text, website: song_url}
         
     render json: {test: "lyrics working"}
   end 
