@@ -13,14 +13,14 @@ class SongsController < ApplicationController
     song = params[:song]
     artist = params[:artist]
     token = "dsKmc8i46aTDrI04k4W4OkE3-fJBsnITVMl3ZZOpaxStMOpyE2x9dIpKVCjrdN1L"
-    render json: {song: song, artist: artist}
-    # response = RestClient.get("https://api.genius.com/search?q=#{song}%20#{artist}", {
-    #     "User-Agent": "CompuServe Classic/1.22",
-    #     "Accept": "application/json",
-    #     "Host": "api.genius.com",
-    #     "Authorization": "Bearer #{token}"
-    # })
     
+    response = RestClient.get("https://api.genius.com/search?q=#{song}%20#{artist}", {
+        "User-Agent": "CompuServe Classic/1.22",
+        "Accept": "application/json",
+        "Host": "api.genius.com",
+        "Authorization": "Bearer #{token}"
+    })
+    render json: {song: song, artist: artist}
     # json_body = JSON.parse(response.body)
 
     # song_url = json_body["response"]["hits"][0]["result"]["url"]
