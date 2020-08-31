@@ -28,7 +28,7 @@ class SongsController < ApplicationController
     
     lyrics = {lyrics: doc.css(".lyrics").children[3].text, website: song_url}
         
-    render json: lyrics 
+    render json: {test: "lyrics working"}
   end 
 
   # GET /songs
